@@ -1,14 +1,16 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 var {mongoose} = require('./db/mongoose');
 var {Instance} = require('./models/instance');
 
 const port = process.env.PORT || 3000;
 var app = express();
+app.use(bodyParser.text());
 
 app.post('/instance', (req, res) => {
   var instance = new Instance({
-    text: req.body.text,
+    text: req.body,
   });
 
   instance.save().then((doc) => {
