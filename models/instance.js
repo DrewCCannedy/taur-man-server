@@ -9,4 +9,4 @@ var Instance = mongoose.model('Instance', {
   }
 });
 
-module.exports = {instance};
+module.exports = {Instance};
