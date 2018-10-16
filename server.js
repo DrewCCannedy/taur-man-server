@@ -9,6 +9,7 @@ var app = express();
 app.use(bodyParser.text());
 
 app.post('/instance', (req, res) => {
+  console.log(req.body);
   var instance = new Instance({
     text: req.body,
   });
