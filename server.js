@@ -1,15 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const hbs = require('hbs');
 
 var {mongoose} = require('./db/mongoose');
 var {Instance} = require('./models/instance');
 
 const port = process.env.PORT || 3000;
+
 var app = express();
 app.use(bodyParser.text());
+app.set('view engine', 'hbs');
+
+var test = "test";
 
 app.post('/instance', (req, res) => {
-  console.log(req.body);
   var instance = new Instance({
     text: req.body,
   });
@@ -19,6 +23,19 @@ app.post('/instance', (req, res) => {
   }, (err) => {
     res.status(400).send(err);
   });
+});
+
+app.get('/test', (req, res) => {
+  res.render("test.hbs", {
+    test: test,
+  });
+});
+
+app.post('/test', (req, res) => {
+  test = req.body;
+  res.send(req.body);
+}, (err) => {
+  res.status(400).send(err);
 });
 
 app.get('/instance', (req, res) => {
