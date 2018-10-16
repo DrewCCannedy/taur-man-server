@@ -8,7 +8,7 @@ var {Instance} = require('./models/instance');
 const port = process.env.PORT || 3000;
 
 var app = express();
-app.use(bodyParser.text());
+app.use(bodyParser.urlencoded());
 app.set('view engine', 'hbs');
 
 var type = "type";
