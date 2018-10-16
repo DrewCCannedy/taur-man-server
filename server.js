@@ -34,7 +34,7 @@ app.get('/test', (req, res) => {
 });
 
 app.post('/test', (req, res) => {
-  test = req;
+  test = req.body;
   type = req.headers["content-type"];
   res.send(req);
 }, (err) => {
