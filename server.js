@@ -32,8 +32,8 @@ app.get('/test', (req, res) => {
 });
 
 app.post('/test', (req, res) => {
-  test = req.body;
-  res.send(req.body);
+  test = req;
+  res.send(req);
 }, (err) => {
   res.status(400).send(err);
 });
