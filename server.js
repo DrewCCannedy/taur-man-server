@@ -22,7 +22,7 @@ app.post('/instance', (req, res) => {
 
 app.get('/instance', (req, res) => {
   Instance.findOne().then((instance) => {
-    res.send({instance});
+    res.send(instance);
   }, (e) => {
     res.status(400).send(e);
   });
