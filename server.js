@@ -11,6 +11,7 @@ var app = express();
 app.use(bodyParser.text());
 app.set('view engine', 'hbs');
 
+var type = "type";
 var test = "test";
 
 app.post('/instance', (req, res) => {
@@ -27,12 +28,14 @@ app.post('/instance', (req, res) => {
 
 app.get('/test', (req, res) => {
   res.render("test.hbs", {
-    test: test,
+    test,
+    type,
   });
 });
 
 app.post('/test', (req, res) => {
   test = req;
+  type = req.headers["content-type"];
   res.send(req);
 }, (err) => {
   res.status(400).send(err);
