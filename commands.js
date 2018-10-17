@@ -4,6 +4,7 @@ const _ = require('lodash');
 
 const argv = yargs
     .command(['post', 'p'], 'post an instance')
+    .command(['update', 'u'], 'update an instance')
     .help()
     .argv;
 
@@ -13,7 +14,7 @@ if (command == 'post'){
     url = "https://fierce-thicket-30230.herokuapp.com/create";
     axios.post(url)
     .then((res) => {
-        console.log(JSON.stringify(res));
+        console.log(res.status);
     })
     .catch((error) => {
         console.error(error);
@@ -24,7 +25,7 @@ if (command == 'update'){
     url = "https://fierce-thicket-30230.herokuapp.com/instance";
     axios.post(url + "/?text=test")
     .then((res) => {
-        console.log(JSON.stringify(res));
+        console.log(res.status);
     })
     .catch((error) => {
         console.error(error);
