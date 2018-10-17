@@ -10,11 +10,21 @@ const argv = yargs
 var command = argv._[0];
 
 if (command == 'post'){
-    url = "https://fierce-thicket-30230.herokuapp.com/instance";
-    axios.post(url, {})
+    url = "https://fierce-thicket-30230.herokuapp.com/create";
+    axios.post(url)
     .then((res) => {
-        console.log(`statusCode: ${res.statusCode}`);
-        console.log(res.body);
+        console.log(JSON.stringify(res));
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+}
+
+if (command == 'update'){
+    url = "https://fierce-thicket-30230.herokuapp.com/instance";
+    axios.post(url + "/?text=test")
+    .then((res) => {
+        console.log(JSON.stringify(res));
     })
     .catch((error) => {
         console.error(error);

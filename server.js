@@ -14,7 +14,7 @@ app.set('view engine', 'hbs');
 var type = "type";
 var test = "test";
 
-app.post('/instance', (req, res) => {
+app.post('/create', (req, res) => {
   var instance = new Instance({
     text: "Fresh Instance",
   });
@@ -23,6 +23,17 @@ app.post('/instance', (req, res) => {
     res.send(doc);
   }, (err) => {
     res.status(400).send(err);
+  });
+});
+
+app.post('/instance', (req, res) => {
+  text = req.query.text;
+  Instance.findOne().then((instance) => {
+    instance.text = text;
+    instance.save();
+    res.send();
+  }, (e) => {
+    res.status(400).send(e);
   });
 });
 
