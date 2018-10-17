@@ -23,7 +23,7 @@ if (command == 'post'){
 
 if (command == 'update'){
     url = "https://fierce-thicket-30230.herokuapp.com/instance";
-    axios.post(url + "/?text=test")
+    axios.post(url + "/?playerX=3&playerY=4&taurX=1&taurY=2")
     .then((res) => {
         console.log(res.status);
     })
