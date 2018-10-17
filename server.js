@@ -16,7 +16,10 @@ var test = "test";
 
 app.post('/create', (req, res) => {
   var instance = new Instance({
-    text: "Fresh Instance",
+    playerX: 0,
+    playerY: 0,
+    taurX: 0,
+    taurY: 0
   });
 
   instance.save().then((doc) => {
@@ -29,7 +32,18 @@ app.post('/create', (req, res) => {
 app.post('/instance', (req, res) => {
   text = req.query.text;
   Instance.findOne().then((instance) => {
-    instance.text = text;
+    if (req.query.playerX) {
+      instance.playerX = req.query.playerX;
+    }
+    if (req.query.playerY) {
+      instance.playerY = req.query.playerY;
+    }
+    if (req.query.taurX) {
+      instance.taurX = req.query.taurX;
+    }
+    if (req.query.taurY) {
+      instance.taurY = req.query.taurY;
+    }
     instance.save();
     res.send();
   }, (e) => {

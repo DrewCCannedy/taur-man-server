@@ -1,11 +1,17 @@
 var mongoose = require('mongoose');
 
 var Instance = mongoose.model('Instance', {
-  text: {
-    type: String,
-    required: true,
-    minlength: 1,
-    trim: true,
+  playerX: {
+    type: Number
+  },
+  playerY: {
+    type: Number
+  },
+  taurX: {
+    type: Number
+  },
+  taurY: {
+    type: Number
   }
 });
 
