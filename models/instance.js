@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
 var Instance = mongoose.model('Instance', {
-  playerX: {
+  humanX: {
     type: Number
   },
-  playerY: {
+  humanY: {
     type: Number
   },
   taurX: {

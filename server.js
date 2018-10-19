@@ -16,8 +16,8 @@ var test = "test";
 
 app.post('/create', (req, res) => {
   var instance = new Instance({
-    playerX: 0,
-    playerY: 0,
+    humanX: 0,
+    humanY: 0,
     taurX: 0,
     taurY: 0
   });
@@ -32,11 +32,11 @@ app.post('/create', (req, res) => {
 app.post('/instance', (req, res) => {
   text = req.query.text;
   Instance.findOne().then((instance) => {
-    if (req.query.playerX) {
-      instance.playerX = req.query.playerX;
+    if (req.query.humanX) {
+      instance.humanX = req.query.humanX;
     }
-    if (req.query.playerY) {
-      instance.playerY = req.query.playerY;
+    if (req.query.humanY) {
+      instance.humanY = req.query.humanY;
     }
     if (req.query.taurX) {
       instance.taurX = req.query.taurX;
