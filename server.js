@@ -24,7 +24,7 @@ app.post('/create', (req, res) => {
   });
 
   instance.save().then((doc) => {
-    res.status(200).send({id: doc.id});
+    res.status(200).send(string(doc.id));
   }, (err) => {
     res.status(400).send(err);
   });
