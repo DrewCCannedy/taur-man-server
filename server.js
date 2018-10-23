@@ -9,6 +9,7 @@ const port = process.env.PORT || 3000;
 
 var app = express();
 app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 app.set('view engine', 'hbs');
 
 var type = "type";
