@@ -23,11 +23,21 @@ app.post('/create', (req, res) => {
   });
 
   instance.save().then((doc) => {
-    res.send(doc);
+    res.send(doc.body.id);
   }, (err) => {
     res.status(400).send(err);
   });
 });
+
+app.post('/delete', (req, res) => {
+  delete_id = req.query.id;
+  Instance.findByIdAndRemove(delete_id, (err, doc) => {
+    if (err) {
+      return res.send(err);
+    }
+    return res.status(200).send();
+  })
+})
 
 app.post('/instance', (req, res) => {
   text = req.query.text;
