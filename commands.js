@@ -15,7 +15,7 @@ if (command == 'create'){
     url = "https://fierce-thicket-30230.herokuapp.com/create";
     axios.post(url)
     .then((res) => {
-        console.log(JSON.stringify(res.body, null, 2));
+        console.log(res);
     })
     .catch((error) => {
         console.error(error);
