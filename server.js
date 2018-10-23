@@ -23,7 +23,7 @@ app.post('/create', (req, res) => {
   });
 
   instance.save().then((doc) => {
-    res.send(doc.body.id);
+    res.send({id: doc.id});
   }, (err) => {
     res.status(400).send(err);
   });
@@ -40,8 +40,8 @@ app.post('/delete', (req, res) => {
 })
 
 app.post('/instance', (req, res) => {
-  text = req.query.text;
-  Instance.findOne().then((instance) => {
+  id = req.query.id;
+  Instance.findById(id).then((instance) => {
     if (req.query.humanX) {
       instance.humanX = req.query.humanX;
     }

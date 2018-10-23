@@ -3,7 +3,7 @@ const yargs = require('yargs');
 const _ = require('lodash');
 
 const argv = yargs
-    .command(['post', 'p'], 'post an instance')
+    .command(['create', 'c'], 'create an instance')
     .command(['update', 'u'], 'update an instance')
     .command(['delete', 'd'], 'delete an instane')
     .help()
@@ -11,7 +11,7 @@ const argv = yargs
 
 var command = argv._[0];
 
-if (command == 'post'){
+if (command == 'create'){
     url = "https://fierce-thicket-30230.herokuapp.com/create";
     axios.post(url)
     .then((res) => {
@@ -33,7 +33,7 @@ if (command == 'update'){
     });
 }
 if (command == 'delete'){
-    url = "https://fierce-thicket-30230.herokuapp.com/delete/?id=5bca5129894e680015c7ce03";
+    url = "https://fierce-thicket-30230.herokuapp.com/delete/?id=5bcf677fd2aab90015681f97";
     axios.post(url)
     .then((res) => {
         console.log(res.status);
