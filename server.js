@@ -2,8 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const hbs = require('hbs');
 
-var {mongoose} = require('./db/mongoose');
-var {Instance} = require('./models/instance');
+var { mongoose } = require('./db/mongoose');
+var { Instance } = require('./models/instance');
 
 const port = process.env.PORT || 3000;
 
@@ -24,7 +24,7 @@ app.post('/create', (req, res) => {
   });
 
   instance.save().then((doc) => {
-    res.status(200).json({id: doc.id});
+    res.status(200).json({ id: doc.id });
   }, (err) => {
     res.status(400).send(err);
   });
@@ -63,11 +63,20 @@ app.post('/instance', (req, res) => {
 });
 
 app.get('/instance', (req, res) => {
-  Instance.findOne().then((instance) => {
-    res.send(instance);
-  }, (e) => {
-    res.status(400).send(e);
-  });
+  if (req.query.id) {
+    id = req.query.id;
+    Instance.findById(id).then((instance) => {
+      res.send(instance);
+    }, (e) => {
+      res.status(400).send(e);
+    })
+  } else {
+    Instance.find().then((instances) => {
+      res.send({instances});
+    }, (e) => {
+      res.status(400).send(e);
+    });
+  }
 });
 
 app.get('/test', (req, res) => {
