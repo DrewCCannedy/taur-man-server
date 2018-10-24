@@ -71,12 +71,20 @@ app.get('/instance', (req, res) => {
       res.status(400).send(e);
     })
   } else {
-    Instance.find().then((instances) => {
-      res.send({instances});
+    Instance.findOne().then((instance) => {
+      res.send(instance);
     }, (e) => {
       res.status(400).send(e);
     });
   }
+});
+
+app.get('/instances', (req, res) => {
+  Instance.find().then((instances) => {
+    res.send(instances);
+  }, (e) => {
+    res.status(400).send(e);
+  });
 });
 
 app.get('/test', (req, res) => {

@@ -33,7 +33,7 @@ if (command == 'update'){
     });
 }
 if (command == 'delete'){
-    url = "https://fierce-thicket-30230.herokuapp.com/delete/?id=5bcf6d9307885e0015958933";
+    url = `https://fierce-thicket-30230.herokuapp.com/delete/?id=5bd0b51d2cacac0015592157`;
     axios.post(url)
     .then((res) => {
         console.log(res.status);
