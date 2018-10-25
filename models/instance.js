@@ -1,16 +1,16 @@
 var mongoose = require('mongoose');
 
 var Instance = mongoose.model('Instance', {
-  humanX: {
+  o_spartanX: {
     type: Number
   },
-  humanY: {
+  o_spartanY: {
     type: Number
   },
-  taurX: {
+  o_minotaurX: {
     type: Number
   },
-  taurY: {
+  o_minotaurY: {
     type: Number
   }
 });

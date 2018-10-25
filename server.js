@@ -43,17 +43,17 @@ app.post('/delete', (req, res) => {
 app.post('/instance', (req, res) => {
   id = req.query.id;
   Instance.findById(id).then((instance) => {
-    if (req.query.humanX) {
-      instance.humanX = req.query.humanX;
+    if (req.query.o_spartanX) {
+      instance.o_spartanX = req.query.o_spartanX;
     }
-    if (req.query.humanY) {
-      instance.humanY = req.query.humanY;
+    if (req.query.o_spartanY) {
+      instance.o_spartanY = req.query.o_spartanY;
     }
-    if (req.query.taurX) {
-      instance.taurX = req.query.taurX;
+    if (req.query.o_minotaurX) {
+      instance.o_minotaurX = req.query.o_minotaurX;
     }
-    if (req.query.taurY) {
-      instance.taurY = req.query.taurY;
+    if (req.query.o_minotaurY) {
+      instance.o_minotaurY = req.query.o_minotaurY;
     }
     instance.save();
     res.send();
