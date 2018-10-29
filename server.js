@@ -11,7 +11,7 @@ var { Instance } = require('./models/instance');
 const net = require('net');
 
 // Configuration parameters
-const HOST = 'localhost';
+const HOST = process.env.IP ||'localhost';
 const PORT = process.env.PORT || 3000;
 
 // Create Server instance 
@@ -105,6 +105,10 @@ app.get('/instances', (req, res) => {
     res.status(400).send(e);
   });
 });
+
+app.get('/ip', (req, res) => {
+  res.send("Address: " + HOST + ":" + PORT);
+})
 
 app.listen(PORT, () => {
   console.log(`Started express server on port ${PORT}`);
